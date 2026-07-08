@@ -5,6 +5,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowUp } from "lucide-react";
+import { motion } from "framer-motion";
+import OurStory from "@/components/OurStory";
+import LeadershipSection from "@/components/LeadershipSection";
 
 const dsContainer =
   "w-full max-w-[1600px] mx-auto pl-4 md:pl-8 lg:pl-12 xl:pl-[64px] pr-6 md:pr-12 lg:pr-16 xl:pr-[90px]";
@@ -13,6 +16,14 @@ const dsSectionHeading =
   "text-[32px] md:text-[40px] xl:text-[48px] font-light text-slate-800 tracking-[0.1em] uppercase leading-tight";
 
 export default function AboutPage() {
+  const partners = [
+    "/images/partners/logo-1.svg",
+    "/images/partners/logo-2.svg",
+    "/images/partners/logo-3.svg",
+    "/images/partners/logo-4.svg",
+    "/images/partners/logo-5.svg",
+    "/images/partners/logo-6.svg",
+  ];
   return (
     <main className="bg-white min-h-screen">
 
@@ -226,8 +237,75 @@ export default function AboutPage() {
 </section>
 
       {/* Partners */}
+      {/* OUR PARTNERS */}
+{/* OUR PARTNERS */}
 
+<section className="w-full py-24 lg:py-28 bg-white overflow-hidden">
+
+  <div className={dsContainer}>
+
+    <ScrollReveal>
+
+      <div className="flex items-center gap-20">
+
+        {/* Heading */}
+
+        <div className="shrink-0">
+
+          <h2 className="text-[32px] md:text-[40px] xl:text-[48px] font-light tracking-[0.1em] uppercase whitespace-nowrap">
+
+            OUR{" "}
+
+            <span className="italic font-medium text-[#63CA55]">
+              PARTNERS
+            </span>
+
+          </h2>
+
+        </div>
+
+        {/* Logos */}
+
+        <div className="relative flex-1 overflow-hidden">
+
+          <motion.div
+            className="flex items-center gap-24 w-max"
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              duration: 22,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {[...partners, ...partners].map((logo, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center min-w-[180px] h-[70px]"
+              >
+                <img
+                  src={logo}
+                  alt={`Partner ${index + 1}`}
+                  className="max-h-12 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </motion.div>
+
+        </div>
+
+      </div>
+
+    </ScrollReveal>
+
+  </div>
+
+</section>
       {/* Timeline */}
+<OurStory />
+<LeadershipSection />
+      
 
       {/* Leadership */}
 
